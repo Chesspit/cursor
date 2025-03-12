@@ -1,0 +1,131 @@
+:root {
+  --primary-color: #6200ee;
+  --primary-light: #9e47ff;
+  --primary-dark: #0a00b6;
+  --secondary-color: #03dac6;
+  --secondary-light: #66fff9;
+  --secondary-dark: #00a895;
+  --error-color: #b00020;
+  --text-primary-light: rgba(0, 0, 0, 0.87);
+  --text-secondary-light: rgba(0, 0, 0, 0.6);
+  --text-disabled-light: rgba(0, 0, 0, 0.38);
+  --text-primary-dark: rgba(255, 255, 255, 0.87);
+  --text-secondary-dark: rgba(255, 255, 255, 0.6);
+  --text-disabled-dark: rgba(255, 255, 255, 0.38);
+  --background-light: #ffffff;
+  --surface-light: #f5f5f5;
+  --background-dark: #121212;
+  --surface-dark: #1e1e1e;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.light-theme {
+  background-color: var(--background-light);
+  color: var(--text-primary-light);
+}
+
+body.dark-theme {
+  background-color: var(--background-dark);
+  color: var(--text-primary-dark);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Calendar styles */
+.calendar-container {
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+
+.calendar-day {
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s;
+}
+
+.calendar-day.completed {
+  background-color: var(--primary-light);
+  color: white;
+}
+
+.calendar-day.today {
+  font-weight: bold;
+  border: 2px solid var(--primary-color);
+}
+
+/* Habit item styles */
+.habit-item {
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  transition: transform 0.2s;
+}
+
+.habit-item:hover {
+  transform: translateY(-2px);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.slide-up {
+  animation: slideUp 0.3s ease-out;
+} 
